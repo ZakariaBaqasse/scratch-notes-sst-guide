@@ -14,5 +14,9 @@ declare module "sst" {
       "type": "sst.aws.ApiGatewayV2"
       "url": string
     }
+    "notes": {
+      "name": string
+      "type": "sst.aws.Dynamo"
+    }
   }
 }
