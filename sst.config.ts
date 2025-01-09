@@ -3,18 +3,19 @@
 export default $config({
   app(input) {
     return {
-      name: "monorepo-template",
+      name: "scratch-notes",
       removal: input?.stage === "production" ? "retain" : "remove",
       protect: ["production"].includes(input?.stage),
       home: "aws",
+      providers:{
+        aws:{
+          profile:"sst-guide-profile"
+        }
+      }
     };
   },
   async run() {
-    const storage = await import("./infra/storage");
+    await import("./infra/storage");
     await import("./infra/api");
-
-    return {
-      MyBucket: storage.bucket.name,
-    };
   },
 });
