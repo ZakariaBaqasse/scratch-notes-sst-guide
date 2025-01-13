@@ -10,6 +10,10 @@ declare module "sst" {
       "id": string
       "type": "sst.aws.CognitoIdentityPool"
     }
+    "StripeSecretKey": {
+      "type": "sst.sst.Secret"
+      "value": string
+    }
     "Uploads": {
       "name": string
       "type": "sst.aws.Bucket"
