@@ -1,4 +1,5 @@
 import { Context, APIGatewayProxyEvent } from "aws-lambda";
+import { Resource } from "sst";
 export namespace Util {
   export function handler(
     lambda: (evt: APIGatewayProxyEvent, context: Context) => Promise<string>
@@ -19,6 +20,10 @@ export namespace Util {
       return {
         body,
         statusCode,
+        headers: {
+          "Access-Control-Allow-Origin": [Resource.FrontendURL.value],
+          "Access-Control-Allow-Credentials": true,
+        },
       };
     };
   }
